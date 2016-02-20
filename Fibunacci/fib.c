@@ -74,48 +74,48 @@ int sum (int * a, int * b, int lena, int lenb, int ** res) {
 	return size + 1;
 }
 
-//int get_fib(int n, int ** res) {
-//	int * prev = malloc(sizeof(int));
-//	prev[0] = 1;
-//	int * prev_prev = malloc(sizeof(int));
-//	prev_prev[0] = 0;
-//
-//	int prevl = 1;
-//	int prev_prevl = 1;
-//
-//	int current = 1;
-//
-//	int l;
-//	while (current < n) {
-//		l = sum(prev, prev_prev, prevl, prev_prevl, res);
-//		current += 1;
-//		free(prev_prev);
-//		prev_prev = prev;
-//		prev = (*res);
-//		prev_prevl = prevl;
-//		prevl = l;
-//	}
-//
-//	free(prev_prev);
-//
-//	return l;
-//}
+int get_fib(int n, int ** res) {
+	int * prev = malloc(sizeof(int));
+	prev[0] = 1;
+	int * prev_prev = malloc(sizeof(int));
+	prev_prev[0] = 0;
 
-//int main() {
-//	int n = 100000;
-//	int * res;
-//
-//	int l = get_fib(n, &res);
-//
-//	int i;
-//
-//	printf("%d: ",l);
-//
-//	for (i = 0; i < l; i++) {
-//		printf("%d",res[i]);
-//	}
-//
-//	free(res);
-//
-//	return 0;
-//}
+	int prevl = 1;
+	int prev_prevl = 1;
+
+	int current = 1;
+
+	int l;
+	while (current < n) {
+		l = sum(prev, prev_prev, prevl, prev_prevl, res);
+		current += 1;
+		free(prev_prev);
+		prev_prev = prev;
+		prev = (*res);
+		prev_prevl = prevl;
+		prevl = l;
+	}
+
+	free(prev_prev);
+
+	return l;
+}
+
+int main() {
+	int n = 100000;
+	int * res;
+
+	int l = get_fib(n, &res);
+
+	int i;
+
+	printf("%d: ",l);
+
+	for (i = 0; i < l; i++) {
+		printf("%d",res[i]);
+	}
+
+	free(res);
+
+	return 0;
+}
